@@ -63,7 +63,7 @@ void NSLog(int sFormatStrings) {
 void NSLog(string sFormatString) {
   if (!logHasBeenInitiated) {//if log not init
     for (int i=0;i<15;i++){//init log
-      #if -1*fillWithNumbers//debug
+      #if fillWithNumbers//debug
       screenText[i] = "";
       #else
       screenText[i] = ""+i;
