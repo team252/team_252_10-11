@@ -56,7 +56,7 @@ void change_menu(int p){
 }
 void drawMenu(){
   //Draw menu items
-	  for(int i = 0; i<=itemsOnScreenAtATime;i++){
+	  for(int i = 0; i<=itemsOnScreenAtATime-1;i++){
 	    if(i==star){
 	      //construct menu text line with star
 	      menu_txt="*"+opt[i+top_menu]+"";
@@ -130,5 +130,13 @@ void menu_main(){
     hide_log(); //hide the menu. cant hurt
     previous_function=current_function; //save the old function number
     current_function=1; //set the current function to menu
+  }
+}
+task main(){
+  isShowingLog=true;
+  NSLog(9);
+  menu_init();
+  while(true){
+    menu_main();
   }
 }
