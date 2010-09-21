@@ -2,6 +2,7 @@
 
 #define itemsOnScreenAtATime 7
 string opt[] = {"Back", "Log"};
+int numberOfMenuItems = sizeof(opt)/sizeof(opt[1]);
 int selection = 0;
 int current_function = 0;
 bool run_once = false;
@@ -14,3 +15,4 @@ bool joyOverRide = false;
 void change_menu(int p);
 void menu_init();
 void menu_main();
+void drawMenu();

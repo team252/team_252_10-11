@@ -16,6 +16,9 @@ void change_menu(int p){
     p=0;
     NSLog("P must be 1");
   }else{
+    if(star+p > numberOfMenuItems-1){//if we are trying to make star further down than the menu
+      return;//skip the rest
+    }
     //move star in direction of p
     star=star+p;
     //move selection in direction of p
@@ -26,7 +29,7 @@ void change_menu(int p){
       //If we can scroll more
       //In more technical terms if the top item is lower than the amount of items we will have to scroll of the top we scroll the menu
       //We determine how many lines we will have to scroll by taking the amount of items - the items that can be on screen at a time
-      if (top_menu<((sizeof(opt)/sizeof(opt[0]))-itemsOnScreenAtATime+1)){
+      if (top_menu<(numberOfMenuItems)-itemsOnScreenAtATime+1){
         //scroll the menu up
 		    top_menu++;
 		  }
@@ -44,19 +47,12 @@ void change_menu(int p){
 	    star++;
 	  }
 	  //Draw menu items
-	  for(int i = 0; i<=itemsOnScreenAtATime;i++){
-	    if(i==star){
-	      menu_txt="*"+opt[i+top_menu]+"";
-	    }else{
-	      menu_txt=" "+opt[i+top_menu]+"";
-	    }
-	    nxtDisplayTextLine(i,menu_txt);
-	  }
+	  drawMenu();
   }
 }
 void drawMenu(){
   //Draw menu items
-	  for(int i = 0; i<=itemsOnScreenAtATime-1;i++){
+	  for(int i = 0; i<=itemsOnScreenAtATime && i < numberOfMenuItems;i++){//while we are within array and screen range
 	    if(i==star){
 	      //construct menu text line with star
 	      menu_txt="*"+opt[i+top_menu]+"";
@@ -130,13 +126,5 @@ void menu_main(){
     hide_log(); //hide the menu. cant hurt
     previous_function=current_function; //save the old function number
     current_function=1; //set the current function to menu
-  }
-}
-task main(){
-  isShowingLog=true;
-  NSLog(9);
-  menu_init();
-  while(true){
-    menu_main();
   }
 }
