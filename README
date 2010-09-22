@@ -2,6 +2,11 @@ Wheeler Robotics FTC team 252, providence, RI code for the 2010-2011 season will
 ***THE CODE STORED IN GENERAL DRIVERS WAS NOT DEVELOPED BY TEAM 252***
 ***THE TEAM AND ITS MEMBERS DID CONTRIBUTE TO THE CTRFID DRIVER BUT OTHER THAN THAT HOLD NO CREDIT FOR ANYTHING IN THAT FOLDER***
 
+We invite all FTC teams (and anyone that uses RobotC for that matter) to look at this code and email us. To get in touch with oliver use monks700@gmail.com or oliver.graff@wheelerschool.org to get intoch with the whole team email robotics@wheelerschool.org
+Also if you discover a bug in anything please report it in Issues or better yet fork it, patch it, and commit it (then pull request).
+
+If you are an FTC team with questions as to how to download or anything invvolving this git use one of the above emails
+
 Programmers:
 
 Noah Fox
