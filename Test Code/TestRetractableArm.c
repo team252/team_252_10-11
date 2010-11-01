@@ -5,7 +5,7 @@
 #include "JoystickDriver.c"
 task main(){
   while(true){
-    getJoystickSettings(joystick);
-    motor[retracteableArm] = joystick.joy1_y1*100/127;
+    getJoystickSettings(joystick);//gets joystick readings
+    motor[retracteableArm] = joystick.joy1_y1*100/127;//sets motor speed of retractable arm motor using percentage of left joy1
   }
 }
