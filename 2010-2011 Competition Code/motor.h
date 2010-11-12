@@ -22,6 +22,7 @@ COPY THESE MOTOR DECLARATIONS INTO ANY FILE USING THIS FILE
 //////////////////////////////////////////////////////////
 
 #ifndef motor_h_ //if we havent already included this file
+#ifdef defines_h_ //if we have done our motor defines
 #define motor_h_ //tell the compiler that we have included it
 
 //This section of defines lets us pass named numbers to setMotor
@@ -47,22 +48,22 @@ void setMotor(int motorName, int value){
   switch (motorName){//depending on the motorname passed
     case LEFT_FRONT: //if left front is the passed motorName
       LF = value; //set LF to passed value
-      motor[motorD] = value; //set the actual Front Left motor to passed value
+      LEFT_FRONT_POINTER = value; //set the actual Front Left motor to passed value
     break; //end LEFT_FRONT value
 
     case RIGHT_FRONT: //if the right front is the passed motorName
       RF = value; //set RF to passed value
-      motor[motorE] = value; //set the actual Right Front motor to passed value
+      RIGHT_FRONT_POINTER = value; //set the actual Right Front motor to passed value
     break; //end RIGHT_FRONT
 
     case LEFT_REAR: //if the left rear is the passed motorName
       LR = value; //set LR to passed value
-      motor[motorF] = value; //set the actual Left Rear motor to passed value
+      LEFT_REAR_POINTER = value; //set the actual Left Rear motor to passed value
     break; //end LEFT_REAR
 
     case RIGHT_REAR: //if the right rear is the passed motorName
       RR = value; //set RR to passed value
-      motor[motorG] = value; //set the actual Right Rear motor to passed value
+      RIGHT_REAR_POINTER = value; //set the actual Right Rear motor to passed value
     break; //end RIGHT_REAR
 
   }
@@ -89,4 +90,5 @@ int getMotor(int motorName) {
   }
   return ret;
 }
+#endif //first endif
 #endif //end of file
