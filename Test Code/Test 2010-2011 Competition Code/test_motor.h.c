@@ -12,6 +12,7 @@
 //unit test for motor.h
 //this runs each of the four drive motors forward for one second each
 /////////////////////////////////////////////////////////////////////
+#include "defines.h"
 #include "../../2010-2011 Competition Code/motor.h" //includes the motor.h file which defines the motors and the setMotor function
 task updateDisplay(){
   eraseDisplay();
