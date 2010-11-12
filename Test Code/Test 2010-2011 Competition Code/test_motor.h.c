@@ -13,6 +13,7 @@
 //this runs each of the four drive motors forward for one second each
 /////////////////////////////////////////////////////////////////////
 #include "defines.h"
+
 #include "../../2010-2011 Competition Code/motor.h" //includes the motor.h file which defines the motors and the setMotor function
 task updateDisplay(){
   eraseDisplay();
@@ -39,5 +40,5 @@ task main(){//main task
   setMotor(LEFT_REAR,100); //set left rear motor to 100
   wait1Msec(1000); //wait one second
   setMotor(LEFT_REAR,0); //stop left rear motor
-  StopAllTasks();
+  StopAllTasks();//end program
 }

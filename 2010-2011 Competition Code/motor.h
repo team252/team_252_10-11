@@ -73,22 +73,22 @@ void setMotor(int motorName, int value){
 * motorName: a #defined motor value
 */
 int getMotor(int motorName) {
-  int ret = 0;
-  switch(motorName){
-    case LEFT_FRONT:
-      ret = LF;
+  int ret = 0;//set up ret
+  switch(motorName){//depending on passed motor
+    case LEFT_FRONT://if left front is passed
+      ret = LF;//set ret to LF
+    break;//end block for LEFT_FRONT
+    case RIGHT_FRONT://if right front is passed
+      ret = RF;//set ret to RF
     break;
-    case RIGHT_FRONT:
-      ret = RF;
+    case LEFT_REAR://if left rear is passed
+      ret = LR;//set ret to LR
     break;
-    case LEFT_REAR:
-      ret = LR;
-    break;
-    case RIGHT_REAR:
-      ret = RR;
+    case RIGHT_REAR://if right rear is passed
+      ret = RR;//set ret to RR
     break;
   }
-  return ret;
+  return ret;//return ret
 }
 #endif //first endif
 #endif //end of file

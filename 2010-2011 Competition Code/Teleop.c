@@ -71,15 +71,15 @@ task main()
 
   waitForStart();   // wait for start of tele-op phase
 
-  while (true)
+  while (true)//loop the code
   {
-    if(abs(joystick.joy1_y1) > 10){
-      setMotor(LEFT_FRONT, joystick.joy1_y1*100.0/127);
-      setMotor(LEFT_REAR, joystick.joy1_y1*100.0/127);
+    if(abs(joystick.joy1_y1) > 10){//when the joystick is above 10 either way
+      setMotor(LEFT_FRONT, joystick.joy1_y1*100.0/127);//set left front to percent of joystick
+      setMotor(LEFT_REAR, joystick.joy1_y1*100.0/127);//set left rear to percent of joystick
     }
     if(abs(joystick.joy1_y2) > 10){
-      setMotor(RIGHT_FRONT, joystick.joy1_y2*100/127);
-      setMotor(RIGHT_REAR, joystick.joy1_y2*100/127);
+      setMotor(RIGHT_FRONT, joystick.joy1_y2*100/127);//set right front to percent of joystick
+      setMotor(RIGHT_REAR, joystick.joy1_y2*100/127);//set right rear to percent of joystick
     }
     getJoystickSettings(joystick);//refresh joystick vals
   }
