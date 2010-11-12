@@ -67,5 +67,26 @@ void setMotor(int motorName, int value){
 
   }
 }
-
+/**
+* Gets the value of the passed motor
+* motorName: a #defined motor value
+*/
+int getMotor(int motorName) {
+  int ret = 0;
+  switch(motorName){
+    case LEFT_FRONT:
+      ret = LF;
+    break;
+    case RIGHT_FRONT:
+      ret = RF;
+    break;
+    case LEFT_REAR:
+      ret = LR;
+    break;
+    case RIGHT_REAR:
+      ret = RR;
+    break;
+  }
+  return ret;
+}
 #endif //end of file
