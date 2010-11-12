@@ -13,7 +13,17 @@
 //this runs each of the four drive motors forward for one second each
 /////////////////////////////////////////////////////////////////////
 #include "../../2010-2011 Competition Code/motor.h" //includes the motor.h file which defines the motors and the setMotor function
+task updateDisplay(){
+  eraseDisplay();
+  while(true){
+    nxtDisplayTextLine(0, "Right Front: " + getMotor(RIGHT_FRONT)); //Display right front speed
+    nxtDisplayTextLine(1, "Left Front: " + getMotor(LEFT_FRONT)); //Display left front speed
+    nxtDisplayTextLine(2, "Right Rear: " + getMotor(RIGHT_REAR)); //Display right rear speed
+    nxtDisplayTextLine(3, "Left Rear: " + getMotor(LEFT_REAR));  //Display left rear speed
+  }
+}
 task main(){//main task
+  StartTask(updateDisplay);
   bMotorReflected[motorE] = true; //flips right front motor
   bMotorReflected[motorG] = true; //flips right rear motor
   setMotor(RIGHT_FRONT,100); //sets right front motor to 100
@@ -28,4 +38,5 @@ task main(){//main task
   setMotor(LEFT_REAR,100); //set left rear motor to 100
   wait1Msec(1000); //wait one second
   setMotor(LEFT_REAR,0); //stop left rear motor
+  StopAllTasks();
 }
