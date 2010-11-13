@@ -30,12 +30,14 @@ COPY THESE MOTOR DECLARATIONS INTO ANY FILE USING THIS FILE
 #define RIGHT_FRONT 1
 #define LEFT_REAR 2
 #define RIGHT_REAR 3
+#define RAMP_WHEELS 4
 //End section of defines to help with setMotor
 
 int LF = 0; //Left Front
 int RF = 0; //Right Front
 int LR = 0; //Left Rear
 int RR = 0; //Right Rear
+int RW = 0; //Ramp Wheels
 //^All mototrs were ititalized to 0, we don't want the robot going crazy when it turns on :)
 
 
@@ -46,26 +48,36 @@ int RR = 0; //Right Rear
 */
 void setMotor(int motorName, int value){
   switch (motorName){//depending on the motorname passed
+#ifdef LEFT_FRONT_POINTER
     case LEFT_FRONT: //if left front is the passed motorName
       LF = value; //set LF to passed value
-      LEFT_FRONT_POINTER = value; //set the actual Front Left motor to passed value
+      motor[LEFT_FRONT_POINTER] = value; //set the actual Front Left motor to passed value
     break; //end LEFT_FRONT value
-
+#endif
+#ifdef RIGHT_FRONT_POINTER
     case RIGHT_FRONT: //if the right front is the passed motorName
       RF = value; //set RF to passed value
-      RIGHT_FRONT_POINTER = value; //set the actual Right Front motor to passed value
+      motor[RIGHT_FRONT_POINTER] = value; //set the actual Right Front motor to passed value
     break; //end RIGHT_FRONT
-
+#endif
+#ifdef LEFT_REAR_POINTER
     case LEFT_REAR: //if the left rear is the passed motorName
       LR = value; //set LR to passed value
-      LEFT_REAR_POINTER = value; //set the actual Left Rear motor to passed value
+      motor[LEFT_REAR_POINTER] = value; //set the actual Left Rear motor to passed value
     break; //end LEFT_REAR
-
+#endif
+#ifdef RIGHT_REAR_POINTER
     case RIGHT_REAR: //if the right rear is the passed motorName
       RR = value; //set RR to passed value
-      RIGHT_REAR_POINTER = value; //set the actual Right Rear motor to passed value
+      motor[RIGHT_REAR_POINTER] = value; //set the actual Right Rear motor to passed value
     break; //end RIGHT_REAR
-
+#endif
+#ifdef RAMP_WHEELS_POINTER//if we have set ramp wheels pointer
+    case RAMP_WHEELS://if we passed RAMPWHEELS
+      RW = value;//set RW to value
+      motor[RAMP_WHEELS_POINTER] = value;//set actual ramp wheels to value
+    break;
+#endif
   }
 }
 /**
@@ -75,18 +87,29 @@ void setMotor(int motorName, int value){
 int getMotor(int motorName) {
   int ret = 0;//set up ret
   switch(motorName){//depending on passed motor
+#ifdef LEFT_FRONT_POINTER
     case LEFT_FRONT://if left front is passed
       ret = LF;//set ret to LF
     break;//end block for LEFT_FRONT
+#endif
+#ifdef RIGHT_FRONT_POINTER
     case RIGHT_FRONT://if right front is passed
       ret = RF;//set ret to RF
     break;
+#endif
+#ifdef LEFT_REAR_POINTER
     case LEFT_REAR://if left rear is passed
       ret = LR;//set ret to LR
     break;
+#endif
     case RIGHT_REAR://if right rear is passed
       ret = RR;//set ret to RR
     break;
+#ifdef RAMP_WHEELS_POINTER
+    case RAMP_WHEELS://if ramp wheels is passed
+      ret = RW;//set ret to RW
+    break;
+#endif
   }
   return ret;//return ret
 }

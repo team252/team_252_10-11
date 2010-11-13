@@ -4,8 +4,7 @@
 ////////////////////////
 #ifndef defines_h_//if we havent already included this
 #define defines_h_//say we have included this
-#define LEFT_FRONT_POINTER motor[motorD]//left front motor is motord
-#define RIGHT_FRONT_POINTER motor[motorE]//right front motor is motore
-#define LEFT_REAR_POINTER motor[motorF]//left rear motor is motorf
-#define RIGHT_REAR_POINTER motor[motorG]//right rear motor is motorg
+#define LEFT_REAR_POINTER motorD//left REAR motor is motord
+#define RIGHT_REAR_POINTER motorE//right REAR motor is motore
+#define RAMP_WHEELS_POINTER motorF//rampwheels is motorF
 #endif
